@@ -6,13 +6,15 @@
 
 - secure: all the private files for the server, data and etc.
     - data: contains all the private json files that are needed.
-        - //
 
 - static: Contains all the Static Files for the server.
     - libs: Contains all the needed Javascript libraries.
         - cannon.js
         - GLTFLoader.js
         - three.module.js
+	- postprocessing: Contains all the post processing javascript files.
+		- shaders: Contains all the Shader Javascript Files.
+		- //
 
     - resources: Contains all the assets for the static html pages.
         - css: contains all the css files.
@@ -42,3 +44,4 @@
 - https://stackoverflow.com/questions/42958252/how-do-i-move-a-three-js-cube-with-keyboard-input - Keyboard Input Help, using different Event.
 - https://www.w3schools.com/js/js_htmldom_eventlistener.asp - Event Listeners
 - https://keycode.info/ - Keyboard Input Keycode Helper
+- http://stemkoski.github.io/Three.js/Collision-Detection.html - Using Raycasting for Collision Detection.
