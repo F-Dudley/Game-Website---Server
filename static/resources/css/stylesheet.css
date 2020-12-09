@@ -1,0 +1,198 @@
+
+/* #region Imports --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+/* #endregion */
+
+*{
+    font-family: 'Righteous', cursive;
+}
+
+body{
+    background-color: dimgray;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+#canvasContainer{
+    margin: 0;
+    padding: 0;
+}
+.canvasContainer canvas{
+    position: absolute;
+    display: inline;
+    margin: 0 0;
+    padding: 0;
+}
+.canvasContainer canvas:hover{
+    cursor: crosshair;
+}
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* #region Game UI --- */
+
+div.gameUI{
+    position: fixed;
+    margin: 0 auto;
+    width: 10%;
+
+    left: 50%;
+    top: 20px;
+    transform: translate(-50%, -50%);
+    align-items: center;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    background-color: rgba(245, 245, 245, 0.8);
+    border: 5px ridge black;
+}
+.gameUI label{
+    color: blue;
+}
+
+/* #endregion --- */
+
+/* #region Navigation Box --- */
+
+div.navbarDiv{
+    position: fixed;
+    width: 15%;
+    height: 60%;
+    padding-top: 10px;
+    margin: 3% 0px;
+
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    background-color: rgba(245, 245, 245, 0.8);    
+    border: 5px ridge black;
+    transition: 0.2s;
+}
+div.navbarDiv:hover{
+    background-color: rgba(245, 245, 245, 0.9);
+}
+.navbarDiv h1{
+    margin: 0 5%;
+    color: blue;
+
+    text-transform: capitalize;
+    text-emphasis-color: blue;
+    text-align: center;
+
+    animation: infinite;
+}
+.navbarDiv a{
+    margin: 12.5px 0px;
+    padding: 5% 0 5% 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+
+    border: 1px solid black;
+    transition: 0.2s;
+}
+.navbarDiv a:active{
+    background-color: rgba(245, 245, 245, 1);
+    color: black;
+    
+}
+.navbarDiv a:hover{
+    background-color: grey;
+    color: whitesmoke;
+    border-right: 5px solid blue;
+}
+
+/* #endregion */
+
+/* #region Login Box --- */
+
+div.logregDiv{
+    width: 30%;
+    height: 30%;
+    padding-bottom: 15px;
+    background-color: rgba(245, 245, 245, 0.8);
+    border: 5px ridge black;
+
+    text-align: center;
+    align-content: center;
+    flex-direction: column;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: fixed;
+    left: 50%;
+    bottom: 0%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    transition: 0.2s;
+}
+div.logregDiv:hover{
+    background-color: rgba(245, 245, 245, 0.9);
+}
+.logregDiv h1{
+    color: blue;
+    border: solid 2px black;
+    padding: 10px 0px;
+}
+.logregDiv input:active{
+    color: black;
+}
+
+div.breakDiv{
+    margin: 0;
+    padding: 0;
+}
+/* #endregion */
+
+/* #region Error Page --- */
+
+div.errorpage{
+
+    text-align: center;
+    align-content: center;
+    box-sizing: content-box;
+    overflow: hidden;
+    border: solid 5px;
+
+    display: block;
+    padding-top: 10px;
+    background-color: rgba(245, 245, 245, 0.8)
+      
+}
+.errorpage h1{
+    color: blue;
+    text-transform: uppercase;
+}
+.errorpage div.errorbuttondiv{
+    width: fit-content;
+    height: 5%;
+}
+.errorpage .reloadIndex{
+    padding: 4px 100px;
+
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: rgba(0, 0, 255, 0.8);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    transition: 0.2s;
+}
+.errorpage .reloadIndex:hover{
+    color:white;
+    background-color: rgba(0, 0, 255, 1);
+    border-top: solid 2px black;
+}
+
+/* #endregion */
