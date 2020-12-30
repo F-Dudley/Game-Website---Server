@@ -56,14 +56,26 @@ app.get('/checkuser-:username/:password', (req, res) => {
 
   let query = db.query(sql, (err, result) => {
     if (err) throw err;
-    if(result.length != null) res.status(200).send(result);
+    if(result.length > 0) res.status(200).send(result);
     else{
-      res.status(200).send("Nothing Found");
-      console.log("Nothing Found");    
+      res.status(404).send("Nothing Found");  
     }
 
   });
 });
+
+app.get('/checkscore-:id', (req, res) =>{
+  let sql = `SELECT id, highscore FROM test WHERE id='${req.params.id}'`;
+
+  let query = db.query(sql, (err, result) => {
+    if (err) throw err;
+    if(result.length > 0) res.status(200).send(result);
+    else{
+      res.status(404).send("Nothing Found");      
+    }
+
+  })
+})
 
 app.get('/changescore-:id/:score', (req, res) => {
   let sql = "UPDATE test SET highscore ="+ db.escape(req.params.score) +"WHERE id ="+ db.escape(req.params.id);
@@ -82,7 +94,7 @@ app.get('/adduser/:username-:email/:password', (req, res) =>{
 
   let query = db.query(sql, post, (err, result) =>{
     if(err) throw err;
-    else res.status(200).send("User Added");
+    else res.status(200).send(`User ${req.params.username} added to System`);
   });
   
   //res.send("Currently Disabled");
@@ -107,7 +119,7 @@ app.get('/top3scores', (req, res) => {
 
   let query = db.query(sql, (err, result) => {
     if (err) throw err;
-    else res.send(result);    
+    else res.status(200).send(result);    
   })
 
 });
