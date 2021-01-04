@@ -37,7 +37,19 @@ body{
     user-select: none;
 }
 
-/* #region Game UI --- */
+/* #region UI Regions --- */
+.gameUIContainer button{
+    margin-top: 1vh;
+    margin-left: 1vw;
+    width: 5%;
+    height: 4vh;
+    
+    border: solid;
+    cursor: pointer;
+    outline: none;
+
+    object-fit: cover;
+}
 
 div.gameUI{
     position: fixed;
@@ -59,14 +71,24 @@ div.gameUI{
     color: blue;
 }
 
+div.loadingScreenDiv{
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    
+
+    background-color: rgba(245, 245, 245, 0.8);    
+    border: 5px ridge black;
+}
 /* #endregion --- */
 
 /* #region Navigation Box --- */
 
 div.navbarDiv{
-    position: fixed;
+    position: absolute;
     width: 15%;
-    height: 60%;
+    height: 50vh;
     padding-top: 10px;
     margin: 3% 0px;
 
@@ -85,27 +107,29 @@ div.navbarDiv:hover{
     margin: 0 5%;
     color: blue;
 
+    font-size: 5vh;
     text-transform: capitalize;
     text-emphasis-color: blue;
     text-align: center;
+    size: initial;
 
     animation: infinite;
 }
 .navbarDiv a{
-    margin: 12.5px 0px;
-    padding: 5% 0 5% 15px;
+    size: 10vh;
+    margin: 2vh 0px;
+    padding: 1vh 1vw;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 4vh;
     color: #818181;
-    display: block;
+    display: flex;
 
     border: 1px solid black;
     transition: 0.2s;
 }
 .navbarDiv a:active{
     background-color: rgba(245, 245, 245, 1);
-    color: black;
-    
+    color: black;   
 }
 .navbarDiv a:hover{
     background-color: grey;
@@ -118,8 +142,8 @@ div.navbarDiv:hover{
 /* #region Login Box --- */
 
 div.logregDiv{
-    width: 30%;
-    height: 30%;
+    width: 30vw;
+    height: 30vh;
     padding-bottom: 15px;
     background-color: rgba(245, 245, 245, 0.8);
     border: 5px ridge black;
@@ -142,15 +166,88 @@ div.logregDiv:hover{
 .logregDiv h1{
     color: blue;
     border: solid 2px black;
-    padding: 10px 0px;
+    padding: 1vh 0px;
+
+    font-size: 4vh 10vw;
 }
-.logregDiv input:active{
-    color: black;
+
+.logregDiv input{
+    width: 10vw;
+    margin-bottom: 1vh;
+
+    transition: 0.2s;
+}
+.logregDiv input:focus{
+    color: blue;
+}
+
+.logregDiv label{
+
+    font-size: 2vh;
+}
+
+.logregDiv button{
+    color: white;
+    background-color: blue;
+    border-radius: 2px;
+    padding: 1vh 2vw;
+
+
+    border: none;
+    transition: 0.2s;
+}
+.logregDiv button:hover{
+    color: white;
+    background-color: gray;
 }
 
 div.breakDiv{
     margin: 0;
     padding: 0;
+}
+/* #endregion */
+
+/* #region Top Score Div --- */
+
+div.highscoreDiv{
+    position: absolute;
+    right: 0;
+    margin: 2vh 2vw 0 0;
+    width: 10%;
+    height: 50vh;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 0.5vh 0;
+
+    text-align: center;
+
+    background-color: rgba(245, 245, 245, 0.8);    
+    border: 5px ridge black;
+    transition: 0.2s;
+}
+div.highscoreDiv:hover{
+    background-color: rgba(245, 245, 245, 0.9);  
+}
+div.highscoreDiv .scoreSeperator{
+    border: 1px solid black;
+}
+
+.highscoreDiv h1{
+    color: blue;
+    font-size: 3vh;
+    text-decoration: underline;
+}
+
+.highscoreDiv h2{
+    color: black;
+    margin-top: 1vh;
+
+    font-size: 3vh;
+}
+
+.highscoreDiv label{
+    font-size: 2vh;
 }
 /* #endregion */
 

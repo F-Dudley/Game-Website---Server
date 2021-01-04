@@ -5,21 +5,33 @@
 <!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 
 <html>
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href=".\resources\css\stylesheet.css">
-        <script type="module" src="./resources/js/main.js"></script>
+        <link rel="stylesheet" href="./resources/css/stylesheet.css">
+        <script type="module" src="./resources/js/main.js"></script>        
+        <script src="https://code.createjs.com/1.0.0/tweenjs.min.js"></script>
 
         <title>ARENA WAR</title>
     </head>
+
     <body>
+        <audio id="sound_interact" src="./resources/sounds/ogg/interact.ogg"></audio>
+        <audio id="sound_playerShoot" src="./resources/sounds/ogg/playershoot.ogg"></audio>
+        <audio id="sound_explosion" src="./resources/sounds/ogg/explosion.ogg"></audio>
+        <audio id="sound_pickup" src="./resources/sounds/ogg/pickup.ogg"></audio>
+
         <div class="canvasContainer" id="canvasContainer"></div>
-        <div class="gameContainer" id="gameUIContainer" hidden>
+        <div class="gameUIContainer" id="gameUIContainer" hidden>
 
-            <a href=""></a>
+            <button id="gameReturnButton">Return</a>
+            
+            <div class="loadingScreenDiv" id="loadingScreenDiv">
+                
+            </div>
 
-            <div class="gameUI" id="gameUIDiv">
+            <div class="gameUI unselectable" id="gameUIDiv">
                 <label id="labelHealthUI">.....</label>
                 <label id="labelScoreUI">.....</label>
             </div>                
@@ -28,51 +40,59 @@
         <div class="menuUIContainter" id="menuUIContainer">
             <div class="navbarDiv unselectable" content="width=device-width, initial-scale=1.0" id="navbarDiv">
                 <h1>arena war</h1>
-                <a class="selectable" id="playButton" >Play</a>
-                <a class="selectable" id="signinButton">Sign In</a>
-                <a class="selectable" id="registerButton">Register</a>           
-                <a class="selectable" id="profileButton">Profile</a>
-                <a class="selectable" id="settingsButton">Settings</a>
+                <a class="selectable" id="nav_playButton" >Play</a>
+                <a class="selectable" id="nav_signinButton">Sign In</a>
+                <a class="selectable" id="nav_registerButton">Register</a>           
+                <a class="selectable" id="nav_profileButton">Profile</a>
             </div>
 
             <div class="logregDiv unselectable" id="logregDiv">
 
                 <div id="loginSepDiv">
                     <h1>Log In</h1>
-                    <label for="name">Name:</label>
+                    <label for="name">Username:</label>
                     <br>
-                    <input type="text" name="name" id="loginNameInput" autocomplete="off" onfocus="playInteractSound()">
+                    <input type="text" name="name" id="LoginInput_username" autocomplete="off">
                     <br>
                     <label for="password">Password:</label>
                     <br>
-                    <input type="password" name="password" id ="loginPasswordInput" autocomplete="off" onfocus="playInteractSound()">
+                    <input type="password" name="password" id ="LoginInput_password" autocomplete="off">
                     <br>
-                    <a id="loginInputButton">Login</a>
+                    <button id="LoginInput_button">Login</a>
                 </div>
-                    
+
                 <div id="registerSepDiv" hidden>
                     <h1>Register</h1>
-                    <label for="name">Name:</label>
+                    <label for="Username">Username:</label>
                     <br>
-                    <input type="text" name="name" id="registerNameInput" autocomplete="off" onfocus="playInteractSound()">
+                    <input type="text" name="name" id="RegisterInput_username" autocomplete="off">
                     <br>
-                    <label for="password">Password:</label>
+                    <label for="Email">Email:</label>
                     <br>
-                    <input type="password" name="password" id ="registerPaswordInput" autocomplete="off" onfocus="playInteractSound()">
+                    <input type="text" name="Email" id="RegisterInput_email" autocomplete="off">
                     <br>
-                    <a id="registerInputButton">Register</a>
+                    <label for="Password">Password:</label>
+                    <br>
+                    <input type="password" name="password" id ="RegisterInput_password" autocomplete="off">
+                    <br>
+                    <button id="RegisterInput_button">Register</a>
                 </div>    
             </div>
 
-            <div id="highScoreDiv" hidden>
+            <div class="highscoreDiv unselectable" id="highScoreDiv">
                 <h1>High Scores</h1>
-                    
-                <h2>1st:</h2> <label id="highscore1User"></label> <label id="highscore1Score"></label>
-                <h2>2nd:</h2> <label id="highscore2User"></label> <label id="highscore2Score"></label>
-                <h2>3rd:</h2> <label id="highscore3User"></label> <label id="highscore3Score"></label>
+                <div class="scoreSeperator">
+                    <h2>1st:</h2> <label id="highscore1User"></label> - <label id="highscore1Score"></label>                    
+                </div>
+                <div class="scoreSeperator">
+                    <h2>2nd:</h2> <label id="highscore2User"></label> - <label id="highscore2Score"></label>
+                </div>
+                <div class="scoreSeperator">
+                    <h2>3rd:</h2> <label id="highscore3User"></label> - <label id="highscore3Score"></label>
+                </div>
             </div>
         </div>
 
-        
     </body>
+
 </html>

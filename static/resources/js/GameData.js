@@ -1,4 +1,4 @@
-class GameData {
+export class GameData {
 
     constructor() {
 
@@ -21,45 +21,50 @@ class GameData {
     }
 
     static getGameData = async (_directory) => {
-        console.log(`Gettings Data from: http://localhost:3000/${_directory}`);
         try {
             let res = await fetch(`http://localhost:3000/${_directory}`);
-            let data = await res.json();
-
-            console.log(data);
-            return data;
-
-        } catch (error) {
+            if(res != null){
+                let data = await res.json();
+                return data
+            }
+            
+            return res;
+        } 
+        catch (error) {
             console.log(`Error Getting Data: ${error}`);
         }
     }
 
     static editGameData = async (_directory) => {
-        console.log(`Getting Data from: http://localhost:3000/${_directory}`);
         try {
-
             let res = await fetch(`http://localhost:3000/${_directory}`);
-            console.log(res.text());
-
-        } catch (error) {
+        }
+        catch (error) {
             console.log(`Error Editting Data: ${error}`);
         }
     }
 
     static changeTop3Scores = async () => {
-        console.log("Changing Top 3 Highscores");
-
         let data = await this.getGameData('top3scores');
-        // 1st Place Elements
-        this.top1UsernameElement.innerHTML = data[0].username;
-        this.top1ScoreElement.innerHTML = data[0].highscore;
-        // 2nd Place Elements
-        this.top2UsernameElement.innerHTML = data[1].username;
-        this.top2ScoreElement.innerHTML = data[1].highscore;
-        // 3rd Place Elements
-        this.top3UsernameElement.innerHTML = data[2].username;
-        this.top3ScoreElement.innerHTML = data[2].highscore;
+        if(data[0] != undefined && data[1] != undefined && data[2] != undefined)
+        {
+            // 1st Place Elements
+            if(this.top1UsernameElement != undefined && this.top2ScoreElement != undefined){
+                this.top1UsernameElement.innerHTML = data[0].username;
+                this.top1ScoreElement.innerHTML = data[0].highscore;            
+            }
+
+            // 2nd Place Elements
+            if(this.top2UsernameElement != undefined && this.top2ScoreElement != undefined){
+                this.top2UsernameElement.innerHTML = data[1].username;
+                this.top2ScoreElement.innerHTML = data[1].highscore;            
+            }
+
+            // 3rd Place Elements
+            if(this.top3UsernameElement != undefined && this.top3ScoreElement != undefined){
+                this.top3UsernameElement.innerHTML = data[2].username;
+                this.top3ScoreElement.innerHTML = data[2].highscore;            
+            }            
+        }
     }
 }
-
-export { GameData };
